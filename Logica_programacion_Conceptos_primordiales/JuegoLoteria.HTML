@@ -1,0 +1,60 @@
+<meta charset="UTF-8">
+<h1>PROGRAMA - Juego de la Lotería</h1>   
+<script>
+  function saltarLinea() {
+    document.write("<br>");
+  }
+
+  function imprimir(frase) {
+    document.write(frase);
+    saltarLinea();
+  }
+  // Función para generar un número aleatorio entre 1 y 100
+  function generarNumero() {
+    return Math.floor(Math.random() * 100) + 1;
+  }
+
+// Función para comprobar si un número se encuentra en un array
+  function comprobarNumero(num, arr) {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === num) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+// Función para jugar a la lotería
+  function jugarLoteria() {
+  // Generamos un número aleatorio
+    let numeroGanador = generarNumero();
+
+  // Pedimos al usuario que introduzca 6 números
+    let numerosElegidos = [];
+    for (let i = 0; i < 6; i++) {
+      let numero = prompt("Introduce un número del 1 al 100:");
+      numerosElegidos.push(numero);
+    }
+
+  // Comprobamos cuántos números ha acertado el usuario
+    let aciertos = 0;
+    for (let i = 0; i < numerosElegidos.length; i++) {
+      if (comprobarNumero(numerosElegidos[i], numeroGanador)) {
+        aciertos++;
+      }
+    }
+
+  // Mostramos al usuario cuántos números ha acertado
+    imprimir("Has acertado " + aciertos + " números.");
+  }
+
+// Llamamos a la función para jugar a la lotería
+  jugarLoteria();
+
+  /*Este código crea una función llamada generarNumero que genera un número aleatorio entre 1 y 100, una función llamada comprobarNumero que comprueba si un número se encuentra en un array y una función llamada jugarLoteria que es la encargada de gestionar el juego de la lotería. La función jugarLoteria genera un número ganador aleatorio, pide al usuario que introduzca 6 números y comprueba cuántos números ha acertado el usuario. Al final, se muestra al usuario cuántos númer*/
+
+
+
+
+
+</script>
